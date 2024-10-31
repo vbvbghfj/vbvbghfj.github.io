@@ -12,25 +12,23 @@
 </head>
 <body>
     <div class="header">
-        <div title="이화여자대학교 수강신청시스템"></div>
-    </div>
-
-    <div class="wrap-login">
-        <div>
+        <div class="logo-container">
+            <img src="ewha-logo.png" alt="이화여자대학교 로고" class="logo">
+            <h1>수강신청 시스템</h1>
+            <p>COURSE REGISTRATION</p>
+        </div>
+        <div class="login-box">
             <form name="form" id="form" method="post">
-                <div class="login-box">
-                    <div>
-                        <input type="text" id="id" name="id" class="input-id" placeholder="학번 ( Student ID )">
-                        <input type="password" id="pwd" name="pwd" class="input-pw" placeholder="비밀번호 ( Password )">
-                        <button type="button" class="btn-login" id="btn_login">
-                            로그인
-                            <small>Login</small>
-                        </button>
-                    </div>
+                <div>
+                    <input type="text" id="id" name="id" class="input-id" placeholder="학번 ( Student ID )">
+                    <input type="password" id="pwd" name="pwd" class="input-pw" placeholder="비밀번호 ( Password )">
+                    <button type="button" class="btn-login" id="btn_login">로그인<br><small>Login</small></button>
                 </div>
             </form>
         </div>
     </div>
+
+    <div class="background-image"></div>
 
     <!-- 수강신청 일정 -->
     <h1>수강신청 일정 <small>Course Registration Schedule</small></h1>
