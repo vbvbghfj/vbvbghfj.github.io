@@ -57,6 +57,7 @@ body {
     position: absolute;
     right: 50px; /* 우측 위치 */
     top: 20px;
+    font-color: #000;
 }
 
 .input-id, .input-pw {
