@@ -17,10 +17,11 @@
             width: 30%;
             height: 30%;
             border: 1px solid #ddd;
-            display: inline-block;
             background-color: #f0f0f0;
         }
     </style>
+    <!-- jQuery CDN 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script language="JavaScript">
         $(document).ready(function(){
             if("Y" == "Y"){
@@ -83,48 +84,5 @@
                 <div class="login-box">
                     <div>
                         <input type="text" id="id" name="id" class="input-id" placeholder="학번 ( Student ID )">
-                        <input type="password" id="pwd" name="pwd" class="input-pw" placeholder="비밀번호 ( Password )">
-                        <!-- 로그인 기능 제거 -->
-                        <button type="button" class="btn-login" id="btn_login">로그인<small>Login</small></button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+                        <input type="password" id="pwd"
 
-    <div class="wrap-contents">
-        <h1>수강신청 일정<small>Course Registration Schedule</small></h1>
-        <div class="wrap-schedule">
-            <div>
-                <h2>수강철회<small>Withdrawal</small></h2>
-                <div class="schedule">
-                    <p style="font-size:16px">2024-2 수강철회</p>
-                    <p style="font-size:16px">2024 Fall Course Withdrawal</p>
-                    <div class="time">
-                        <span>9.23.(월) 09:00 - 27.(금) 17:00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="wrap-notice">
-        <p>접속자가 많은 경우, 로그인 및 수강신청시 순차적으로 서비스 진입이 허용됩니다.</p>
-        <p>대기 시간이 발생할 수 있으나, 순차적으로 진행되니 참고하시기 바랍니다.</p>
-        <p>로그인 및 장바구니 사용 시간은 수강신청 시작 30분 전부터 가능합니다.</p>
-    </div>
-
-    <div class="footer">
-        <p>[03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114</p>
-        <p>&copy; 2019 EWHA Womans University. All rights reserved.</p>
-        <a href="/privacy" style="color:#fff; font-size: 13px; font-weight: bold;">개인정보처리방침</a>
-    </div>
-
-    <div id="popNotice" style="display: none;">
-        <p>공지사항을 확인하세요.</p>
-    </div>
-
-    <!-- 이미지 자리 유지 (빈 자리로 표시) -->
-    <div class="placeholder"></div>
-</body>
-</html>
