@@ -1,92 +1,17 @@
-/* 기본 설정 */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    margin: 0px;
+    padding: 0px;
 }
 
-/* 헤더와 푸터 스타일 */
-.header, .footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-
-.footer a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-/* 로그인 박스 스타일 */
-.wrap-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.wrap-login, .wrap-contents, .wrap-notice, .footer {
+    padding: 20px;
 }
 
 .login-box {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 320px;
 }
 
-/* 입력 필드와 버튼 스타일 */
-.input-id, .input-pw {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.btn-login {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.btn-login:hover {
-    background-color: #45a049;
-}
-
-/* 콘텐츠 스타일 */
-.wrap-contents {
-    padding: 20px;
-}
-
-.wrap-schedule {
-    margin-top: 20px;
-}
-
-.wrap-notice {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #333;
-}
-
-.notice p {
-    line-height: 1.6;
-}
-
-/* 팝업 스타일 */
-#popNotice {
-    padding: 20px;
-    font-size: 14px;
-    color: #333;
-    background-color: #fff;
-    border-radius: 8px;
+.highlight {
+    font-weight: bold;
+    color: #f00;
 }
