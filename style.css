@@ -50,14 +50,14 @@ body {
     width: 300px;
     position: absolute;
     right: 50px; /* 우측 위치 */
-    top: 250px;
+    top: 20px;
 }
 
 .input-id, .input-pw {
-    width: 150px;
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
-    font-size: 10px;
+    font-size: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
