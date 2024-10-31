@@ -15,3 +15,21 @@ body {
     font-weight: bold;
     color: #f00;
 }
+
+.notice-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.notice-left, .notice-right {
+    width: 48%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.notice-left p, .notice-right p {
+    margin: 10px 0;
+}
