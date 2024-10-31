@@ -13,7 +13,8 @@ body {
     display: flex;
     align-items: center;
     padding: 20px;
-    background-color: #00462a;
+    background-color: rgba(0,4,98,0.65);
+    color:#fff;
     border-bottom: 1px solid #ddd;
     position: relative;
 }
