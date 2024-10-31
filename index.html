@@ -5,62 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ewha Course Registration Simulator</title>
-    <style>
-        body {margin: 0px; padding: 0px;}
-        .wrap-login, .wrap-contents, .wrap-notice, .footer { padding: 20px; }
-        .login-box { height: 320px; }
-        .highlight { font-weight: bold; color: #f00; }
-    </style>
+    <link href="style.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            if (location.protocol === 'http:') {
-                top.location.href = "https://" + location.hostname;
-            }
-        });
-
-        function dateFormat(date) {
-            return date.getFullYear() + '-' +
-                ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-' +
-                (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
-        }
-
-        function fnPopNotice() {
-            $("#popNotice").dialog({
-                resizable: false,
-                width: 1200,
-                height: 700,
-                modal: true,
-                closeOnEscape: false,
-                draggable: true,
-                open: function(event, ui) {
-                    $('#popNotice').html("공지사항 내용을 여기에 입력하세요.");
-                },
-                buttons: [
-                    {
-                        text: "오늘 하루 동안 열지 않음",
-                        click: function() {
-                            $(this).dialog("close");
-                        }
-                    },
-                    {
-                        text: "Close",
-                        click: function() {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
-        }
-    </script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="header">
         <div title="이화여자대학교 수강신청시스템"></div>
     </div>
 
-    <!-- 로그인 UI 유지 -->
     <div class="wrap-login">
         <div>
             <form name="form" id="form" method="post">
@@ -78,7 +32,6 @@
         </div>
     </div>
 
-    <!-- 공지사항 및 안내문 -->
     <div class="wrap-contents">
         <h1>수강신청 일정 <small>Course Registration Schedule</small></h1>
         <div class="wrap-schedule">
@@ -149,3 +102,4 @@
     </div>
 </body>
 </html>
+
