@@ -21,16 +21,13 @@
         function getToken(){
             return document.form.token.value;
         }
-        window.onload=function(){
-            $("#Main").attr("src",context + "/login?attribute"+window.IsDuplicate());
-        }
     </script>
 </head>
 <body>
     <form name="form">
         <input type="hidden" name="token" id="token">
     </form>
-    <iframe name="Main" id="Main" style="position: absolute; width:100%; height:100%; boder: none;" scrolling="auto" src="/login?attribute=login">
+    <iframe name="Main" id="Main" style="position: absolute; width:100%; height:100%; boder: none;" scrolling="auto">
         #document (https://sugang.ewha.ac.kr/login?attribute=login)
         <!DOCTYPE html>
         <html lang="ko")
@@ -47,7 +44,7 @@
                     [fn]= w[fn]|| function(){var c={}; c.tenantApiUrl=arguments[0];
                 c.tenantNFUrl=arguments[1]; c.tenantLoaderPort=arguments[2]; (w[fn].l=w[fn].l||[]).push(c);};
                     var o=d.createElement(s); var p=d.getElementsByTagName(s)[0]; o.async=1;
-                o.charset='utf-8'; o.src=uri; p.parentNode.insertBefore(o,p);
+                o.charset='utf-8';
                 })(window, document, 'script', 'https://nf.ewha.ac.kr/agents/web/surffy-agent_latest.js','nfTag');
                     nfTag('https://nf.ewha.ac.kr/assets/nf-setting/1/nf-setting.json', 'https://nf.weha.ac.kr', '443');
             </script>
