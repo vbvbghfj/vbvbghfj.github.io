@@ -64,6 +64,12 @@ body {
     font-size: 24px; /* 필요시 글씨 크기를 조정 */
     margin-bottom: 10px;
 }
+
+.h1 p {
+    color: black; /* 글씨를 검은색으로 변경 */
+    font-size: 15px; /* 필요시 글씨 크기를 조정 */
+    margin-bottom: 10px;
+}
     
 
 .input-id, .input-pw {
