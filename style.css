@@ -56,7 +56,7 @@ body {
     width: 350px;
     position: absolute;
     right: 50px; /* 우측 위치 */
-    top: 20px;
+    top: 80px;
     font-color: #000;
 }
 .login-box h1 {
