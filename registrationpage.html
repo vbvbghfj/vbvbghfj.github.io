@@ -11,38 +11,56 @@
             font-family: Arial, sans-serif;
             line-height: 1.5;
         }
-        .header {
+        .container {
+            display: flex;
+        }
+        .sidebar {
             background-color: #005e34;
             color: white;
-            padding: 20px;
+            width: 200px;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            padding-top: 20px;
         }
-        .header .logo-container img {
-            max-height: 50px;
+        .sidebar img {
+            max-width: 80%;
+            margin-bottom: 20px;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .header nav a {
+        .sidebar nav a {
             color: white;
-            margin-right: 15px;
             text-decoration: none;
+            padding: 10px 15px;
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        .sidebar nav a:hover {
+            background-color: #003021;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
         }
         .background-image {
             background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             height: 200px;
+            margin-bottom: 20px;
         }
-        .content {
-            padding: 20px;
+        .buttons {
+            margin-top: 20px;
         }
-        .content h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        .buttons a {
+            display: inline-block;
+            background-color: #005e34;
+            color: white;
+            padding: 10px 15px;
+            margin-right: 10px;
+            text-decoration: none;
+            border-radius: 5px;
         }
         .notice-container {
             display: flex;
@@ -58,22 +76,6 @@
             height: auto;
             margin-top: 10px;
         }
-        .notice-left p,
-        .notice-right p {
-            margin: 5px 0;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons a {
-            display: inline-block;
-            background-color: #005e34;
-            color: white;
-            padding: 10px 15px;
-            margin-right: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
         .footer {
             background-color: #003021;
             color: white;
@@ -84,51 +86,51 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo-container">
+    <div class="container">
+        <!-- 좌측 사이드바 -->
+        <div class="sidebar">
             <img src="img-logo.png" alt="이화여자대학교 로고">
-        </div>
-        <h1>수강포털시스템</h1>
-        <nav>
-            <a href="#">홈</a>
-            <a href="#">장바구니</a>
-            <a href="#">수강신청</a>
-            <a href="#">수강철회</a>
-        </nav>
-    </div>
-
-    <div class="background-image"></div>
-
-    <div class="content">
-        <h1>수강신청 유의사항 <small>Notice</small></h1>
-
-        <div class="buttons">
-            <a href="#">수강신청 안내</a>
-            <a href="#">Guide for Course Registration</a>
-            <a href="#">수강신청 메뉴얼</a>
-            <a href="#">User Manual for Course Registration</a>
+            <nav>
+                <a href="#">장바구니</a>
+                <a href="#">수강신청</a>
+                <a href="#">수강철회</a>
+                <a href="#">수강신청 내역 조회</a>
+            </nav>
         </div>
 
-        <div class="notice-container">
-            <div class="notice-left">
-                <h2>수강신청 전 매크로방지 키 입력</h2>
-                <p>로그인 후 [장바구니], [수강신청], [채플신청] 중 1개 메뉴 접속 시 매크로방지용 키를 1회 입력하여야 수강신청이 가능합니다. (로그아웃 전까지는 추가적으로 입력하지 않음)</p>
-                <h2>매크로 프로그램 방지</h2>
-                <p>매크로 프로그램을 방지하기 위해 관리자가 지정한 횟수 이상 저장을 시도하면 화면에 나타나는 문자열을 입력하고 계속 사용하여야 함.</p>
-                <img src="netfun4.png" alt="매크로 방지 이미지">
+        <!-- 메인 콘텐츠 -->
+        <div class="content">
+            <div class="background-image"></div>
+
+            <h1>수강신청 유의사항 <small>Notice</small></h1>
+            <div class="buttons">
+                <a href="#">수강신청 안내</a>
+                <a href="#">Guide for Course Registration</a>
+                <a href="#">수강신청 메뉴얼</a>
+                <a href="#">User Manual for Course Registration</a>
             </div>
-            <div class="notice-right">
-                <h2>Notice</h2>
-                <p>In case of too much traffic in the system, a waiting queue will be allocated for all students trying to login or register courses.</p>
-                <p><strong>Multiple Logins Prohibited.</strong> If you try multiple logins with the same ID number, only the last logged-in user will be connected to the system.</p>
+
+            <div class="notice-container">
+                <div class="notice-left">
+                    <h2>수강신청 전 매크로방지 키 입력</h2>
+                    <p>로그인 후 [장바구니], [수강신청], [채플신청] 중 1개 메뉴 접속 시 매크로방지용 키를 1회 입력하여야 수강신청이 가능합니다. (로그아웃 전까지는 추가적으로 입력하지 않음)</p>
+                    <h2>매크로 프로그램 방지</h2>
+                    <p>매크로 프로그램을 방지하기 위해 관리자가 지정한 횟수 이상 저장을 시도하면 화면에 나타나는 문자열을 입력하고 계속 사용하여야 함.</p>
+                    <img src="netfun4.png" alt="매크로 방지 이미지">
+                </div>
+                <div class="notice-right">
+                    <h2>Notice</h2>
+                    <p>In case of too much traffic in the system, a waiting queue will be allocated for all students trying to login or register courses.</p>
+                    <p><strong>Multiple Logins Prohibited.</strong> If you try multiple logins with the same ID number, only the last logged-in user will be connected to the system.</p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>[03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114</p>
+                <p>Copyright @ 2019 EWHA Womans University. All rights reserved.</p>
+                <p><a href="http://www.ewha.ac.kr/ewha/etc/privacy.do" style="color: #ffcc00;">개인정보처리방침</a></p>
             </div>
         </div>
-    </div>
-
-    <div class="footer">
-        <p>[03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114</p>
-        <p>Copyright @ 2019 EWHA Womans University. All rights reserved.</p>
-        <p><a href="http://www.ewha.ac.kr/ewha/etc/privacy.do" style="color: #ffcc00;">개인정보처리방침</a></p>
     </div>
 </body>
 </html>
