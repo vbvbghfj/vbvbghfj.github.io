@@ -63,15 +63,12 @@
             border-radius: 5px;
         }
         .notice-container {
-            display: flex;
-            justify-content: space-between;
             margin-top: 20px;
         }
-        .notice-left,
-        .notice-right {
-            width: 48%;
+        .notice-section {
+            margin-bottom: 20px;
         }
-        .notice-left img {
+        .notice-section img {
             width: 100%;
             height: auto;
             margin-top: 10px;
@@ -111,14 +108,17 @@
             </div>
 
             <div class="notice-container">
-                <div class="notice-left">
+                <!-- 첫 번째 공지사항 -->
+                <div class="notice-section">
                     <h2>수강신청 전 매크로방지 키 입력</h2>
                     <p>로그인 후 [장바구니], [수강신청], [채플신청] 중 1개 메뉴 접속 시 매크로방지용 키를 1회 입력하여야 수강신청이 가능합니다. (로그아웃 전까지는 추가적으로 입력하지 않음)</p>
                     <h2>매크로 프로그램 방지</h2>
                     <p>매크로 프로그램을 방지하기 위해 관리자가 지정한 횟수 이상 저장을 시도하면 화면에 나타나는 문자열을 입력하고 계속 사용하여야 함.</p>
                     <img src="netfun4.png" alt="매크로 방지 이미지">
                 </div>
-                <div class="notice-right">
+
+                <!-- 두 번째 공지사항 -->
+                <div class="notice-section">
                     <h2>Notice</h2>
                     <p>In case of too much traffic in the system, a waiting queue will be allocated for all students trying to login or register courses.</p>
                     <p><strong>Multiple Logins Prohibited.</strong> If you try multiple logins with the same ID number, only the last logged-in user will be connected to the system.</p>
