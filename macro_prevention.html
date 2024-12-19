@@ -78,36 +78,25 @@
             color: #00663f;
         }
 
-        .main-banner {
-            background-image: url('2.png');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
+        .captcha-container {
             text-align: center;
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
-        .main-banner h1 {
-            font-size: 2rem;
-            margin: 0;
+        .captcha-container img {
+            margin-bottom: 10px;
         }
 
-        .main-banner p {
-            margin: 10px 0 0;
+        .captcha-container input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        .top-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .top-buttons button {
+        .captcha-container button {
             background-color: #00663f;
             color: white;
             border: none;
@@ -116,35 +105,26 @@
             cursor: pointer;
         }
 
-        .top-buttons button:hover {
+        .captcha-container button:hover {
             background-color: #00562d;
         }
 
-        .notice-section {
-            margin-top: 20px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .notice-section h2 {
-            color: #00663f;
-            border-bottom: 2px solid #00663f;
-            padding-bottom: 10px;
-        }
-
-        .notice-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .notice-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .notice-section ul li span {
+        h2 {
             font-weight: bold;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             color: #00663f;
+        }
+
+        .notice {
+            color: red;
+            font-size: 0.9rem;
+        }
+
+        .top-section img {
+            height: 30px;
         }
     </style>
 </head>
@@ -171,7 +151,10 @@
             <div class="title">수강포털시스템 (Course Registration Portal)</div>
         </div>
         
-        <h2>수강신청 &gt; 매크로 방지용 키입력 (Macro Prevention)</h2>
+        <h2>
+            <img src="3.png" alt="매크로 방지 아이콘">
+            수강신청 &gt; 매크로 방지용 키입력 (Macro Prevention)
+        </h2>
         <div class="captcha-container">
             <img src="5EngCol_1.png" alt="Captcha Image">
             <p>자동 수강신청을 방지하기 위한 입력입니다.<br>아래 이미지에서 보이는 문자를 입력하세요!</p>
