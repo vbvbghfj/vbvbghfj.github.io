@@ -9720,4 +9720,52 @@ table + h2 {
 .hide {
   display: none; }
 
+/* 전체 테이블 스타일 */
+table.course-list {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; /* 모든 텍스트 가운데 정렬 */
+    font-size: 14px;
+}
+
+/* 테이블 헤더 */
+table.course-list th {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 테이블 데이터 */
+table.course-list td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* 희망순서 버튼 */
+td.preference-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+td.preference-order button {
+    width: 20px;
+    height: 20px;
+    background-color: #00663f;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+td.preference-order button:hover {
+    background-color: #00562d;
+}
+
+
 /*# sourceMappingURL=ewha-ui.css.map */
