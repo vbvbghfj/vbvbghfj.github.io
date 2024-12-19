@@ -3,133 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>수강신청 유의사항</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>수강신청 시스템</title>
+    <link rel="stylesheet" href="ewha-ui.css">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.5;
+            font-family: "Segoe UI", "나눔스퀘어", sans-serif;
         }
-        .container {
-            display: flex;
-        }
+
         .sidebar {
-            background-color: #005e34;
+            width: 250px;
+            background-color: #00663f;
             color: white;
-            width: 300px;
-            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            padding: 10px;
+        }
+
+        .sidebar .profile {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            padding-top: 20px;
+            padding: 10px 5px;
+            cursor: pointer;
         }
-        .sidebar img {
-            max-width: 80%;
-            margin-bottom: 20px;
-        }
-        .sidebar nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            width: 100%;
-            text-align: center;
-            display: block;
-        }
-        .sidebar nav a:hover {
-            background-color: #003021;
-        }
-        .content {
-            flex-grow: 1;
-            padding: 20px;
-        }
-        .background-image {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 200px;
-            margin-bottom: 20px;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons a {
-            display: inline-block;
-            background-color: #005e34;
-            color: white;
-            padding: 10px 15px;
+
+        .sidebar ul li img {
+            height: 24px;
             margin-right: 10px;
-            text-decoration: none;
-            border-radius: 5px;
         }
-        .notice-container {
-            margin-top: 20px;
+
+        .sidebar ul li:hover {
+            background-color: #00562d;
         }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        .content .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content .header img {
+            height: 50px;
+        }
+
+        .content .header .title {
+            font-size: 1.5rem;
+            color: #00663f;
+        }
+
         .notice-section {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .notice-section h2 {
+            color: #00663f;
+            border-bottom: 2px solid #00663f;
+            padding-bottom: 10px;
+        }
+
+        .notice-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notice-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .notice-section ul li span {
+            font-weight: bold;
+            color: #00663f;
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 10px;
             margin-bottom: 20px;
         }
-        .notice-section img {
-            width: 100%;
-            height: auto;
-            margin-top: 10px;
-        }
-        .footer {
-            background-color: #003021;
+
+        .top-buttons button {
+            background-color: #00663f;
             color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .top-buttons button:hover {
+            background-color: #00562d;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 좌측 사이드바 -->
-        <div class="sidebar">
-            <img src="img-logo.png" alt="이화여자대학교 로고">
-            <nav>
-                <a href="#">장바구니</a>
-                <a href="#">수강신청</a>
-                <a href="#">수강철회</a>
-                <a href="#">수강신청 내역 조회</a>
-            </nav>
+    <div class="sidebar">
+        <div class="profile">김이화</div>
+        <ul>
+            <li><img src="icon-cart.png" alt="장바구니 아이콘"> 장바구니</li>
+            <li><img src="icon-registration.png" alt="수강신청 아이콘"> 수강신청</li>
+            <li><img src="icon-registration.png" alt="수강신청 취소 아이콘"> 수강신청 취소</li>
+            <li><img src="icon-search.png" alt="수강신청 내역조회 아이콘"> 수강신청 내역조회</li>
+            <li><img src="icon-link.png" alt="서브메뉴 아이콘"> 서브메뉴 <img src="icon-more.png" alt="더보기 아이콘"></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <div class="title">수강포털시스템 (Course Registration Portal)</div>
+            <img src="logo-footer.png" alt="이화여대 로고">
         </div>
 
-        <!-- 메인 콘텐츠 -->
-        <div class="content">
-            <div class="background-image"></div>
+        <div class="main-banner">
+            <h1>DON'T WALK WHEN YOU CAN RUN</h1>
+            <p>실패를 두려워하지 않는 용기를 가지고, 청춘은 마음껏 뛰놀기를 바랍니다.</p>
+        </div>
 
-            <h1>수강신청 유의사항 <small>Notice</small></h1>
-            <div class="buttons">
-                <a href="#">수강신청 안내</a>
-                <a href="#">Guide for Course Registration</a>
-                <a href="#">수강신청 메뉴얼</a>
-                <a href="#">User Manual for Course Registration</a>
-            </div>
+        <div class="top-buttons">
+            <button>수강제도 안내</button>
+            <button>Guide for Course Registration</button>
+            <button>수강신청 매뉴얼</button>
+            <button>User Manual for Course Registration</button>
+        </div>
 
-            <div class="notice-container">
-                <!-- 첫 번째 공지사항 -->
-                <div class="notice-section">
-                    <h2>수강신청 전 매크로방지 키 입력</h2>
-                    <p>로그인 후 [장바구니], [수강신청], [채플신청] 중 1개 메뉴 접속 시 매크로방지용 키를 1회 입력하여야 수강신청이 가능합니다. (로그아웃 전까지는 추가적으로 입력하지 않음)</p>
-                    <h2>매크로 프로그램 방지</h2>
-                    <p>매크로 프로그램을 방지하기 위해 관리자가 지정한 횟수 이상 저장을 시도하면 화면에 나타나는 문자열을 입력하고 계속 사용하여야 함.</p>
-                    <img src="netfun4.png" alt="매크로 방지 이미지">
-                </div>
-
-                <!-- 두 번째 공지사항 -->
-                <div class="notice-section">
-                    <h2>Notice</h2>
-                    <p>In case of too much traffic in the system, a waiting queue will be allocated for all students trying to login or register courses.</p>
-                    <p><strong>Multiple Logins Prohibited.</strong> If you try multiple logins with the same ID number, only the last logged-in user will be connected to the system.</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                <p>[03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114</p>
-                <p>Copyright @ 2019 EWHA Womans University. All rights reserved.</p>
-                <p><a href="http://www.ewha.ac.kr/ewha/etc/privacy.do" style="color: #ffcc00;">개인정보처리방침</a></p>
-            </div>
+        <div class="notice-section">
+            <h2>수강신청 유의사항 Notice</h2>
+            <ul>
+                <li><span>수강신청 전 매크로방지 키 입력:</span> 로그인 후 장바구니 또는 수강신청 접속 시 매크로방지 키를 입력해야 합니다.</li>
+                <li><span>매크로 프로그램 방지:</span> 매크로 프로그램 사용이 탐지되면 수강신청이 중단될 수 있습니다.</li>
+                <li><span>새로고침(F5) 사용 불가:</span> 보안을 위해 새로고침(F5) 기능은 제한됩니다.</li>
+                <li><span>중복 로그인 방지:</span> 동일 학번으로 여러 곳에서 로그인 시 이전 로그인이 종료됩니다.</li>
+                <li><span>팝업차단 해제:</span> 팝업 차단 설정을 해제해야 합니다.</li>
+            </ul>
         </div>
     </div>
 </body>
