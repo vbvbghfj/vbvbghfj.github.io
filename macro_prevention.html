@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="ewha-ui.css">
     <style>
         .content {
-            margin-left: 200px; /* Adjust according to the sidebar width */
+            margin-left: 200px;
             padding: 20px;
         }
 
@@ -41,21 +41,10 @@
             cursor: pointer;
             font-size: 1rem;
         }
-
-        .captcha-container p {
-            margin: 10px 0;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        .captcha-container .notice {
-            color: #00663f;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
-    <!-- 상단 로고 및 제목 -->
+    <!-- 상단 로고 -->
     <div class="header">
         <div class="logo">
             <img src="logo-footer.png" alt="이화여자대학교 로고">
@@ -77,11 +66,10 @@
     <!-- 본문 -->
     <div class="content">
         <h2>수강신청 &gt; 매크로 방지용 키입력 (Macro Prevention)</h2>
-
         <div class="captcha-container">
             <img src="5EngCol_1.png" alt="Captcha Image">
             <p>자동 수강신청을 방지하기 위한 입력입니다.<br>아래 이미지에서 보이는 문자를 입력하세요!</p>
-            <p class="notice">시뮬레이션이므로 바로 입력 버튼을 누르세요.</p>
+            <p class="notice">문자를 5회 이상 틀리면 자동 로그아웃됩니다.</p>
             <p>소문자로 입력시 대문자로 자동 변환됩니다.</p>
             <input type="text" placeholder="문자를 입력하세요">
             <button>입력</button>
