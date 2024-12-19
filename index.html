@@ -14,7 +14,7 @@
         .header {
             background-color: #00663f;
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -26,38 +26,31 @@
         }
 
         .header .logo img {
-            height: 40px;
+            height: 50px;
             margin-right: 10px;
-        }
-
-        .header .menu {
-            display: flex;
-            gap: 15px;
-        }
-
-        .header .menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
         }
 
         .main {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background: url("background-image.jpg") no-repeat center center;
-            background-size: cover;
+            background-color: #f9f9f9;
         }
 
         .main .title {
-            text-align: center;
-            margin-bottom: 20px;
+            max-width: 50%;
         }
 
         .main .title h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #00663f;
+            margin-bottom: 10px;
+        }
+
+        .main .title p {
+            font-size: 1.2rem;
+            color: #333;
         }
 
         .login-box {
@@ -90,47 +83,54 @@
         }
 
         .schedule-section {
-            width: 80%;
+            background-color: #fff;
+            padding: 20px;
             margin-top: 20px;
         }
 
         .schedule-section h2 {
             color: #00663f;
-            border-bottom: 2px solid #00663f;
-            padding-bottom: 5px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
 
         .schedule-section .schedule {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
             justify-content: space-between;
+            gap: 10px;
         }
 
         .schedule-card {
-            background-color: white;
+            background-color: #f9f9f9;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 10px;
             border-radius: 5px;
+            text-align: center;
             flex: 1;
-            min-width: 250px;
         }
 
         .schedule-card h3 {
             color: #00663f;
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
 
         .schedule-card p {
-            margin: 0;
             color: #333;
+            font-size: 1rem;
         }
 
-        .footer {
+        .schedule-card a {
+            color: #00663f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
             background-color: #f1f1f1;
             color: #333;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin-top: 20px;
         }
     </style>
@@ -141,12 +141,6 @@
             <img src="logo-footer.png" alt="Logo">
             <span>이화여자대학교</span>
         </div>
-        <nav class="menu">
-            <a href="#">장바구니</a>
-            <a href="#">수강신청</a>
-            <a href="#">수강철회</a>
-            <a href="#">조회</a>
-        </nav>
     </div>
 
     <div class="main">
@@ -185,7 +179,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer>
         <p>[03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114</p>
         <p>Copyright @ 2019 EWHA Womans University. All rights reserved.</p>
     </footer>
