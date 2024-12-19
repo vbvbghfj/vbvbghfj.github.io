@@ -2,110 +2,192 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ewha Course Registration Simulator</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="main.js" defer></script>
+    <title>Ewha Course Registration System</title>
+    <link rel="stylesheet" href="ewha-ui.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "나눔스퀘어", sans-serif;
+        }
+
+        .header {
+            background-color: #00663f;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .header .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: url("background-image.jpg") no-repeat center center;
+            background-size: cover;
+        }
+
+        .main .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main .title h1 {
+            font-size: 2rem;
+            color: #00663f;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-box button {
+            background-color: #ff8430;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .schedule-section {
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        .schedule-section h2 {
+            color: #00663f;
+            border-bottom: 2px solid #00663f;
+            padding-bottom: 5px;
+        }
+
+        .schedule-section .schedule {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        .schedule-card {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .schedule-card h3 {
+            color: #00663f;
+            margin-bottom: 10px;
+        }
+
+        .schedule-card p {
+            margin: 0;
+            color: #333;
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo-container">
-            <img src="img-logo.png" alt="이화여자대학교 로고" class="logo">
-            
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span>이화여자대학교</span>
         </div>
+        <nav class="menu">
+            <a href="#">장바구니</a>
+            <a href="#">수강신청</a>
+            <a href="#">수강철회</a>
+            <a href="#">조회</a>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="title">
+            <h1>DON'T WALK WHEN YOU CAN RUN</h1>
+            <p>실패를 두려워하지 않는 용기를 가지고, 청춘은 마음껏 뛰놀기를 바랍니다.</p>
+        </div>
+
         <div class="login-box">
-            <form name="form" id="form" method="post">
-                <div>
-                    <h1>수강신청 시스템</h1>
-                    <p>COURSE REGISTRATION</p>
-                    <input type="text" id="id" name="id" class="input-id" placeholder="학번 ( Student ID )">
-                    <input type="password" id="pwd" name="pwd" class="input-pw" placeholder="비밀번호 ( Password )">
-                    <button type="button" class="btn-login" id="btn_login" onclick="location.href='registrationpage.html'">로그인<br><small>Login</small></button>
-                </div>
+            <form action="registrationpage.html" method="get">
+                <input type="text" name="student_id" placeholder="학번 (Student ID)" required>
+                <input type="password" name="password" placeholder="비밀번호 (Password)" required>
+                <button type="submit">로그인</button>
             </form>
         </div>
     </div>
 
-    <div class="background-image"></div>
-
-    <!-- 수강신청 일정 -->
-    <h1>수강신청 일정 <small>Course Registration Schedule</small></h1>
-    <div class="wrap-schedule">
-        <div>
-            <h2>수강철회 <small>Withdrawal</small></h2>
-            <div class="schedule">
-                <p style="font-size:16px">2024-2 수강철회</p>
-                <p style="font-size: 16px">
-                    "2024 Fall Course Withdrawal"
-                    <a href="http://www.ewha.ac.kr/ewha/etc/course-guide04.do" target="_blank">
-                        <span class="btn-more"></span>
-                    </a>
-                </p>
-                <div class="time">
-                    <span>9.23.(월) 09:00 - 27.(금) 17:00</span>
-                </div>
+    <div class="schedule-section">
+        <h2>수강신청 일정</h2>
+        <div class="schedule">
+            <div class="schedule-card">
+                <h3>계절학기 추가수강신청</h3>
+                <p>2024 겨울계절학기 추가수강신청</p>
+                <p><a href="#">more+</a></p>
             </div>
-        </div>
-        <div>
-            <h2>수강신청 부정행위 관련 안내</h2>
-            <div class="schedule">
-                <p style="font-size: 16px">수강신청 부정행위 관련 안내</p>
-                <p style="font-size: 16px">
-                    <a href="http://www.ewha.ac.kr/ewha/etc/course-guide05.do" target="_blank">
-                        <span class="btn-more"></span>
-                    </a>
-                </p>
+            <div class="schedule-card">
+                <h3>계절학기 수강신청</h3>
+                <p>2024 겨울계절수강 안내</p>
+                <p><a href="#">more+</a></p>
+            </div>
+            <div class="schedule-card">
+                <h3>수강신청 부정행위 관련 안내</h3>
+                <p>부정행위 관련 공지사항</p>
+                <p><a href="#">more+</a></p>
             </div>
         </div>
     </div>
 
-    <div class="wrap-notice">
-        <h1>공지사항 <small>Notice</small></h1>
-        <div class="notice-container">
-            <div class="notice-left">
-                <p>접속자가 많은 경우, 로그인 및 수강신청시 순차적으로 서비스 진입이 허용됩니다.</p>
-                <p>대기 시간이 발생할 수 있으나, 순차적으로 진행되니 참고하시기 바랍니다.</p>
-                <img src="netfun4.png" width="30%" height="30%">
-                
-                <p>[학부] 로그인 및 장바구니 사용 시간은 <span class="highlight">수강신청 시작 30분 전부터 가능</span>합니다. 수강신청은 정해진 시작 시간부터 실시됩니다.</p>
-                
-                <p><span class="highlight">중복 로그인 불가.</span> 하나의 학번으로 여러 사람이 중복 로그인을 하는 경우, 마지막에 로그인한 사람만 수강신청 서버에 접속되며 그 전에 로그인한 사람은 입력 및 삭제가 되지 않으며 로그인이 취소됩니다.</p>
-                
-                <p>[수강신청 전 매크로방지 키 입력 필요]</p>
-                <p>로그인 후 [장바구니], [수강신청], [채플신청] 중 1개 메뉴 접속 시 <span class="highlight">매크로방지용 키를 1회 입력</span>하여야 수강신청이 가능합니다.(로그아웃 전까지는 추가적으로 입력하지 않음)</p>
-                
-                <p>[수강신청 중 매크로 프로그램 방지] 관리자가 지정한 횟수 이상 저장을 시도하면 ‘매크로방지용 입력키’를 추가 입력하여야 합니다(문자열 오류 횟수 5회 이상인 경우 자동 로그아웃). 과도한 클릭이 발생하는 경우에도 메시지창 뜨며 수강신청이 중지됩니다.</p>
-                
-                <p>수강신청을 위한 과도한 클릭이나 <strong>자동접속프로그램(매크로)등을 사용시 수강신청이 중단</strong>됩니다. 매크로 등을 사용시 개인적 불이익을 받을 수 있으니 사용하지 마시기 바랍니다.</p>
-                
-                <p>[학부] 교환대학(서울대, 연대, 서강대 등)수강신청은 해당 대학으로부터 학번이 부여된 학생만 가능합니다.</p>
-            </div>
-            <div class="notice-right">
-                <p>In case of too much traffic in the system, a waiting queue will be allocated for all students trying to login or register courses.</p>
-                <p>Students can login and use the wish list <span class="highlight">30 minutes prior to the registration period.</span></p>
-                <p><span class="highlight">Multiple Logins Prohibited.</span> If you try multiple logins with the same ID number, only the last logged-in user will be connected to the system. Previously logged-in users will be disconnected.</p>
-                
-                <p>[Entering macro prevention key Before course registration]</p>
-                <p>Students must enter a macro prevention key once before course registration after entering to [Wish list], [Course Registration] or [Chapel] menu. After you enter the macro prevention key once, no additional macro preventive key input is requested until you logout.</p>
-                
-                <p>[Macro Prevention During Course Registration] If students try to click excessively more than the number of times that system manager set up, putting key word page would come up on the screen for macro prevention. When typing letters incorrectly for 5 times, users will be logged out. Also, If excessive clicks occur, the course registration will be restricted.</p>
-                
-                <p><strong>Do not use Macro programs or click excessively during course registration.</strong> Students who affect the system by using such programs will be restricted from course registration. Furthermore, there may be additional disciplinary measures for such actions.</p>
-                
-                <p>Course registration for domestic exchange university courses(Seoul National University, Yonsei University, Sogang University etc.) is only possible for Ewha students who have been pre-selected.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div>
-            [03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114
-            <br> Copyright @ 2019 EWHA Womans University. All rights reserved.
-            <br> <a href="http://www.ewha.ac.kr/ewha/etc/privacy.do" target="_blank" style="color:#fff; font-size: 13px; font-weight: bold;">개인정보처리방침</a>
-        </div>
-    </div>
+    <footer class="footer">
+        <p>[03760] 서울특별시 서대문구 이화여대길 52 이화여자대학교 / TEL : 02-3277-2114</p>
+        <p>Copyright @ 2019 EWHA Womans University. All rights reserved.</p>
+    </footer>
 </body>
 </html>
