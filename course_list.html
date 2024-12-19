@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수강신청 리스트</title>
+    <link rel="stylesheet" href="ewha-ui.css">
     <style>
         body {
             margin: 0;
@@ -66,9 +67,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: white;
-            padding: 10px 20px;
-            border-bottom: 1px solid #ccc;
         }
 
         .content .header img {
@@ -80,60 +78,47 @@
             color: #00663f;
         }
 
-        table {
+        table.course-list {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            text-align: center; /* 모든 텍스트 가운데 정렬 */
+            font-size: 14px;
+        }
+
+        table.course-list th {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ddd;
             text-align: center;
         }
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
+        table.course-list td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
         }
 
-        th {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-
-        .input-button {
+        td.preference-order {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 5px;
         }
 
-        .input-button button {
-            width: 10px;
+        td.preference-order button {
+            width: 20px;
             height: 20px;
             background-color: #00663f;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 3px;
             cursor: pointer;
+            font-size: 12px;
         }
 
-        .input-button button:hover {
+        td.preference-order button:hover {
             background-color: #00562d;
-        }
-
-        .apply-btn {
-            padding: 5px 10px;
-            background-color: #00663f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .apply-btn:hover {
-            background-color: #00562d;
-        }
-
-        .disabled-btn {
-            background-color: #ccc;
-            cursor: not-allowed;
         }
     </style>
 </head>
@@ -142,10 +127,15 @@
         <div class="profile">김이화</div>
         <ul>
             <li><img src="icon-cart.png" alt="장바구니 아이콘"><span>장바구니</span></li>
-            <li><img src="icon-registration.png" alt="수강신청 아이콘"><span>수강신청</span></li>
+            <li>
+                <a href="macro_prevention.html" style="text-decoration: none; color: white;">
+                    <img src="icon-registration.png" alt="수강신청 아이콘">
+                    <span>수강신청</span>
+                </a>
+            </li>
             <li><img src="icon-registration.png" alt="수강신청 취소 아이콘"><span>수강신청 취소</span></li>
             <li><img src="icon-search.png" alt="수강신청 내역조회 아이콘"><span>수강신청 내역조회</span></li>
-            <li><img src="icon-link.png" alt="서브메뉴 아이콘"><span>서브메뉴</span></li>
+            <li><img src="icon-link.png" alt="서브메뉴 아이콘"><span>서브메뉴</span> <img src="icon-more.png" alt="더보기 아이콘"></li>
         </ul>
     </div>
 
@@ -155,12 +145,12 @@
             <div class="title">수강포털시스템 (Course Registration Portal)</div>
         </div>
 
-        <table>
+        <table class="course-list">
             <thead>
                 <tr>
-                    <th>신청</th>
+                    <th>수강신청</th>
                     <th>학수번호</th>
-                    <th>교과목명</th>
+                    <th>과목명</th>
                     <th>교과목구분</th>
                     <th>개설학과</th>
                     <th>이수학년</th>
@@ -176,45 +166,41 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><button class="apply-btn">신청</button></td>
-                    <td>30567-02</td>
-                    <td>상담심리</td>
-                    <td>전공선택</td>
-                    <td>융합전공</td>
-                    <td>2</td>
-                    <td>Y</td>
+                    <td><button>신청</button></td>
+                    <td>10101</td>
+                    <td>소프트웨어 공학</td>
+                    <td>전공</td>
+                    <td>컴퓨터공학과</td>
+                    <td>3학년</td>
+                    <td>O</td>
                     <td>3</td>
                     <td>홍길동</td>
-                    <td>화/목 10:00-11:15<br>IT101</td>
-                    <td>25</td>
+                    <td>화 9-12 / 302</td>
+                    <td>30</td>
                     <td>5</td>
                     <td>-</td>
-                    <td>
-                        <div class="input-button">
-                            <button>▲</button>
-                            <button>▼</button>
-                        </div>
+                    <td class="preference-order">
+                        <button>&lt;</button>
+                        <button>&gt;</button>
                     </td>
                 </tr>
                 <tr>
-                    <td><button class="apply-btn disabled-btn" disabled>마감</button></td>
-                    <td>40578-01</td>
-                    <td>운영체제</td>
-                    <td>전공필수</td>
-                    <td>컴퓨터공학</td>
+                    <td><button>신청</button></td>
+                    <td>20202</td>
+                    <td>데이터베이스</td>
+                    <td>전공</td>
+                    <td>컴퓨터공학과</td>
+                    <td>2학년</td>
+                    <td>X</td>
                     <td>3</td>
-                    <td>N</td>
-                    <td>3</td>
-                    <td>이순신</td>
-                    <td>월/수 13:30-14:45<br>IT102</td>
-                    <td>30</td>
-                    <td>0</td>
+                    <td>김철수</td>
+                    <td>수 1-4 / 205</td>
+                    <td>25</td>
+                    <td>10</td>
                     <td>-</td>
-                    <td>
-                        <div class="input-button">
-                            <button>▲</button>
-                            <button>▼</button>
-                        </div>
+                    <td class="preference-order">
+                        <button>&lt;</button>
+                        <button>&gt;</button>
                     </td>
                 </tr>
             </tbody>
