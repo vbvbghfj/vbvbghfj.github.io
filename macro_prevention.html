@@ -3,108 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매크로 방지용 키 입력</title>
+    <title>Macro Prevention</title>
     <link rel="stylesheet" href="ewha-ui.css">
     <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", "나눔스퀘어", sans-serif;
-        }
-
-        .container {
-            margin: 20px;
+        .content {
+            margin-left: 200px; /* Adjust according to the sidebar width */
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .header img {
-            height: 50px;
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-            margin-top: 10px;
-        }
-
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #00663f;
-        }
-
-        .breadcrumb span {
-            color: #333;
         }
 
         .captcha-container {
             text-align: center;
+            margin-top: 50px;
         }
 
         .captcha-container img {
-            margin: 20px 0;
-            border: 1px solid #ddd;
-            padding: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
         }
 
-        .captcha-container input {
-            width: 200px;
-            padding: 5px;
+        .captcha-container input[type="text"] {
+            width: 300px;
+            padding: 10px;
             font-size: 1rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         .captcha-container button {
-            padding: 10px 15px;
             background-color: #00663f;
             color: white;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1rem;
         }
 
-        .captcha-container button:hover {
-            background-color: #00562d;
+        .captcha-container p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #333;
         }
 
-        .instructions {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .instructions li {
-            margin-bottom: 10px;
+        .captcha-container .notice {
+            color: #00663f;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="img-logo.png" alt="이화여자대학교 로고">
-            <h1>수강포탈시스템 (Course Registration Portal)</h1>
+    <!-- 상단 로고 및 제목 -->
+    <div class="header">
+        <div class="logo">
+            <img src="logo-footer.png" alt="이화여자대학교 로고">
+            <span>이화여자대학교 수강포탈시스템 (Course Registration Portal)</span>
         </div>
-        <div class="breadcrumb">
-            수강신청 (My Course list) > <span>매크로 방지용 키 입력 (Macro prevention)</span>
-        </div>
+    </div>
+
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <ul>
+            <li><img src="icon-cart.png" alt="Wish List Icon"> 장바구니</li>
+            <li><img src="icon-registration.png" alt="Course Registration Icon"> 수강신청</li>
+            <li><img src="icon-registration.png" alt="Course Withdrawal Icon"> 수강신청 취소</li>
+            <li><img src="icon-search.png" alt="View Course Registration Icon"> 수강신청 내역조회</li>
+            <li><img src="icon-link.png" alt="Sub Menu Icon"> 서브 메뉴 <img src="icon-more.png" alt="More Icon"></li>
+        </ul>
+    </div>
+
+    <!-- 본문 -->
+    <div class="content">
+        <h2>수강신청 &gt; 매크로 방지용 키입력 (Macro Prevention)</h2>
+
         <div class="captcha-container">
-            <img src="5EngCol_1.png" alt="캡챠 이미지">
-            <p class="instructions">
-                <ul>
-                    <li>✖️ 자동 수강신청을 방지하기 위한 입력입니다.</li>
-                    <li>✔️ 이미지에서 보이는 문자를 입력하세요!</li>
-                    <li>✖️ 문자를 5회 이상 잘못 입력하면 로그아웃됩니다.</li>
-                    <li>✔️ 소문자 입력시 대문자로 자동 변환됩니다.</li>
-                </ul>
-            </p>
-            <input type="text" placeholder="문자를 입력하세요" id="captcha-input">
-            <br>
-            <button id="captcha-submit">입력</button>
+            <img src="5EngCol_1.png" alt="Captcha Image">
+            <p>자동 수강신청을 방지하기 위한 입력입니다.<br>아래 이미지에서 보이는 문자를 입력하세요!</p>
+            <p class="notice">시뮬레이션이므로 바로 입력 버튼을 누르세요.</p>
+            <p>소문자로 입력시 대문자로 자동 변환됩니다.</p>
+            <input type="text" placeholder="문자를 입력하세요">
+            <button>입력</button>
         </div>
     </div>
 </body>
