@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매크로 방지용 키 입력</title>
+    <link rel="stylesheet" href="ewha-ui.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "나눔스퀘어", sans-serif;
+        }
+
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            height: 50px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #00663f;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        .captcha-container {
+            text-align: center;
+        }
+
+        .captcha-container img {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .captcha-container input {
+            width: 200px;
+            padding: 5px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .captcha-container button {
+            padding: 10px 15px;
+            background-color: #00663f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .captcha-container button:hover {
+            background-color: #00562d;
+        }
+
+        .instructions {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="img-logo.png" alt="이화여자대학교 로고">
+            <h1>수강포탈시스템 (Course Registration Portal)</h1>
+        </div>
+        <div class="breadcrumb">
+            수강신청 (My Course list) > <span>매크로 방지용 키 입력 (Macro prevention)</span>
+        </div>
+        <div class="captcha-container">
+            <img src="5EngCol_1.png" alt="캡챠 이미지">
+            <p class="instructions">
+                <ul>
+                    <li>✖️ 자동 수강신청을 방지하기 위한 입력입니다.</li>
+                    <li>✔️ 이미지에서 보이는 문자를 입력하세요!</li>
+                    <li>✖️ 문자를 5회 이상 잘못 입력하면 로그아웃됩니다.</li>
+                    <li>✔️ 소문자 입력시 대문자로 자동 변환됩니다.</li>
+                </ul>
+            </p>
+            <input type="text" placeholder="문자를 입력하세요" id="captcha-input">
+            <br>
+            <button id="captcha-submit">입력</button>
+        </div>
+    </div>
+</body>
+</html>
