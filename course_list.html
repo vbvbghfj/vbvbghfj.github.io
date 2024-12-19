@@ -65,11 +65,11 @@
 
         .header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            background-color: #00663f;
-            color: white;
+            justify-content: space-between;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
         }
 
         .header img {
@@ -78,26 +78,9 @@
 
         .header .title {
             font-size: 1.5rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f9f9f9;
             font-weight: bold;
+            color: #00663f;
+            margin-left: 10px;
         }
 
         .top-buttons {
@@ -119,6 +102,26 @@
         .top-buttons button:hover {
             background-color: #00562d;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -135,8 +138,13 @@
 
     <div class="content">
         <div class="header">
-            <img src="img-logo.png" alt="이화여대 로고">
-            <div class="title">수강포털시스템 (Course Registration Portal)</div>
+            <div style="display: flex; align-items: center;">
+                <img src="img-logo.png" alt="이화여대 로고">
+                <div class="title">수강포털시스템 (Course Registration Portal)</div>
+            </div>
+            <div style="text-align: right;">
+                <!-- 필요한 추가 메뉴 버튼 등이 있으면 이 섹션에 추가 -->
+            </div>
         </div>
         
         <div class="top-buttons">
