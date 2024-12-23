@@ -38,24 +38,41 @@ function fnPopNotice() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const applyButtons = document.querySelectorAll('.apply-btn');
-    const confirmedTable = document.getElementById('confirmed-table');
+// 신청 버튼 클릭 이벤트 처리
+document.addEventListener("DOMContentLoaded", () => {
+    const applyButtons = document.querySelectorAll(".apply-button");
+    const confirmedCoursesTable = document.getElementById("confirmed-courses");
 
     applyButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            const row = event.target.closest('tr');
-            const clonedRow = row.cloneNode(true);
+        button.addEventListener("click", (event) => {
+            const row = event.target.closest("tr"); // 클릭된 버튼이 속한 행
+            const cells = row.querySelectorAll("td");
 
-            // Remove the "신청" 버튼 from the cloned row
-            clonedRow.querySelector('.apply-btn').remove();
-            clonedRow.querySelector('.preference-order')?.remove();
+            // 새로운 행 생성
+            const newRow = document.createElement("tr");
 
-            // Append the cloned row to the confirmed table
-            confirmedTable.appendChild(clonedRow);
+            // 기존 행 데이터를 복사하여 새로운 행에 추가
+            cells.forEach((cell, index) => {
+                const newCell = document.createElement("td");
 
-            // Optionally disable the apply button to prevent duplicate additions
-            button.disabled = true;
+                // 신청 버튼과 희망 순서 열은 제외
+                if (index === 0) {
+                    newCell.textContent = "확정";
+                } else if (index !== cells.length - 1) {
+                    newCell.innerHTML = cell.innerHTML;
+                } else {
+                    newCell.innerHTML = `<button>&uarr;</button><button>&darr;</button>`;
+                }
+
+                newRow.appendChild(newCell);
+            });
+
+            // 새로운 행을 확정 테이블에 추가
+            confirmedCoursesTable.appendChild(newRow);
+
+            // 신청 완료 메시지 표시 (선택 사항)
+            alert("수강신청이 확정되었습니다.");
         });
     });
 });
+
