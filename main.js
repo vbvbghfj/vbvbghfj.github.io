@@ -39,42 +39,41 @@ function fnPopNotice() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 신청 버튼 클릭 이벤트 처리
     const applyButtons = document.querySelectorAll("#cart-table .apply-btn");
     const confirmedTable = document.querySelector("#confirmed-table"); // 확정 내역 테이블의 tbody
-
-    if (applyButtons.length === 0) {
-        console.error("apply-btn 버튼을 찾을 수 없습니다. HTML 구조를 확인하세요.");
-        return;
-    }
 
     applyButtons.forEach((button) => {
         button.addEventListener("click", function () {
             // 현재 버튼이 포함된 행을 가져오기
             const row = button.closest("tr");
-            if (!row) {
-                console.error("해당 버튼의 부모 행을 찾을 수 없습니다.");
-                return;
+            
+            // 이미 확정 내역에 동일한 학수번호가 있는지 확인
+            const courseId = row.children[1].textContent; // 학수번호
+            const existingRows = confirmedTable.querySelectorAll("tr");
+            for (const existingRow of existingRows) {
+                if (existingRow.children[1].textContent === courseId) {
+                    alert("이미 확정 내역에 있는 과목입니다.");
+                    return;
+                }
             }
 
-            console.log("클릭된 행:", row);
-
+            // 행 복사
             const clonedRow = row.cloneNode(true);
 
             // 신청 버튼 제거
-            const applyBtn = clonedRow.querySelector(".apply-btn");
-            if (applyBtn) {
-                applyBtn.remove();
-            } else {
-                console.error("복제된 행에서 apply-btn을 찾을 수 없습니다.");
-            }
+            const applyButton = clonedRow.querySelector(".apply-btn");
+            if (applyButton) applyButton.remove();
 
             // 확정 테이블에 추가
             confirmedTable.appendChild(clonedRow);
-            console.log("확정 테이블에 추가된 행:", clonedRow);
+
+            // 버튼 비활성화
+            button.disabled = true;
+            button.textContent = "신청 완료";
         });
     });
 });
+
 
 
 
