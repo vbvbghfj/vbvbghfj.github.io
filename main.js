@@ -37,3 +37,25 @@ function fnPopNotice() {
         ]
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const applyButtons = document.querySelectorAll('.apply-btn');
+    const confirmedTable = document.getElementById('confirmed-table');
+
+    applyButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            const row = event.target.closest('tr');
+            const clonedRow = row.cloneNode(true);
+
+            // Remove the "신청" 버튼 from the cloned row
+            clonedRow.querySelector('.apply-btn').remove();
+            clonedRow.querySelector('.preference-order')?.remove();
+
+            // Append the cloned row to the confirmed table
+            confirmedTable.appendChild(clonedRow);
+
+            // Optionally disable the apply button to prevent duplicate additions
+            button.disabled = true;
+        });
+    });
+});
