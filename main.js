@@ -79,20 +79,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 전역 스코프에서 startTime 초기화
+    // 전역 변수 선언
     let startTime = null;
 
-    // 시간 측정 버튼
-    const measureTimeButton = document.querySelector("#start-timer");
+    // 시간 측정 버튼 가져오기
+    const startTimerButton = document.querySelector("#start-timer");
     const applyButtons = document.querySelectorAll(".apply-btn");
-    const confirmedTable = document.querySelector("#confirmed-table"); // 확정 내역 테이블의 tbody
+    const confirmedTable = document.querySelector("#confirmed-table");
 
     // 시간 측정 버튼 클릭 이벤트 처리
-    if (measureTimeButton) {
-        measureTimeButton.addEventListener("click", function () {
+    if (startTimerButton) {
+        console.log("시간 측정 버튼이 존재합니다.");
+        startTimerButton.addEventListener("click", function () {
             alert("시간을 측정합니다.");
             startTime = new Date(); // 측정 시작 시간 기록
-            console.log("시간 측정 시작:", startTime); // 디버깅용 콘솔 로그
+            console.log("측정 시작 시간:", startTime); // 디버깅용
         });
     } else {
         console.error("시간 측정 버튼이 HTML에 존재하지 않습니다.");
@@ -101,18 +102,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // 신청 버튼 클릭 이벤트 처리
     applyButtons.forEach((button) => {
         button.addEventListener("click", function () {
-            // 시간 측정이 시작되지 않았다면 경고
             if (!startTime) {
                 alert("먼저 시간을 측정하세요!");
                 return;
             }
 
-            // 현재 버튼이 포함된 행을 가져오기
             const row = button.closest("tr");
-
-            // 이미 확정 내역에 동일한 학수번호가 있는지 확인
-            const courseId = row.children[1].textContent; // 학수번호
+            const courseId = row.children[1].textContent;
             const existingRows = confirmedTable.querySelectorAll("tr");
+
+            // 중복 과목 확인
             for (const existingRow of existingRows) {
                 if (existingRow.children[1].textContent === courseId) {
                     alert("이미 확정 내역에 있는 과목입니다.");
@@ -122,27 +121,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // 행 복사
             const clonedRow = row.cloneNode(true);
-
-            // 신청 버튼 제거
             const applyButton = clonedRow.querySelector(".apply-btn");
             if (applyButton) applyButton.remove();
-
-            // 확정 테이블에 추가
             confirmedTable.appendChild(clonedRow);
 
             // 버튼 비활성화
             button.disabled = true;
             button.textContent = "신청 완료";
 
-            // 모든 버튼이 비활성화되었는지 확인
+            // 모든 버튼 비활성화 확인
             const allButtonsDisabled = Array.from(applyButtons).every((btn) => btn.disabled);
             if (allButtonsDisabled) {
                 const endTime = new Date();
-                const elapsedTime = ((endTime - startTime) / 1000).toFixed(2); // 소요 시간 (초)
-                alert(`모든 신청 완료! 총 소요 시간: ${elapsedTime}초`);
-                console.log("시간 측정 종료:", endTime); // 디버깅용 콘솔 로그
+                const duration = ((endTime - startTime) / 1000).toFixed(2);
+                alert(`모든 신청 완료! 소요 시간: ${duration}초`);
+                console.log("측정 종료 시간:", endTime); // 디버깅용
                 startTime = null; // 시간 초기화
             }
         });
     });
 });
+
