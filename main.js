@@ -79,34 +79,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const startTimerButton = document.querySelector("#start-timer");
-    const applyButtons = document.querySelectorAll("#cart-table .apply-btn");
-    const confirmedTable = document.querySelector("#confirmed-table"); // 확정 내역 테이블의 tbody
+    let startTime = null;
 
     // 시간 측정 버튼 클릭 이벤트
-    if (startTimerButton) {
-        startTimerButton.addEventListener("click", function () {
+    const measureTimeButton = document.querySelector("#start-timer");
+    const applyButtons = document.querySelectorAll(".apply-btn");
+    const confirmedTable = document.querySelector("#confirmed-table"); // 확정 내역 테이블의 tbody
+
+    // 시간 측정 버튼 클릭 처리
+    if (measureTimeButton) {
+        measureTimeButton.addEventListener("click", function () {
             alert("시간을 측정합니다.");
-            window.startTime = new Date();
-            console.log("Start Time Set:", window.startTime); // 디버깅 로그
+            startTime = new Date(); // 측정 시작 시간 기록
         });
     } else {
         console.error("시간 측정 버튼이 HTML에 존재하지 않습니다.");
     }
 
-    // 신청 버튼 클릭 이벤트
+    // 신청 버튼 클릭 이벤트 처리
     applyButtons.forEach((button) => {
         button.addEventListener("click", function () {
-            if (!window.startTime) {
+            // 시간 측정이 시작되지 않았다면 경고
+            if (!startTime) {
                 alert("먼저 시간을 측정하세요!");
                 return;
             }
 
+            // 현재 버튼이 포함된 행을 가져오기
             const row = button.closest("tr");
+
+            // 이미 확정 내역에 동일한 학수번호가 있는지 확인
             const courseId = row.children[1].textContent; // 학수번호
             const existingRows = confirmedTable.querySelectorAll("tr");
-
-            // 중복 확인
             for (const existingRow of existingRows) {
                 if (existingRow.children[1].textContent === courseId) {
                     alert("이미 확정 내역에 있는 과목입니다.");
@@ -116,8 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // 행 복사
             const clonedRow = row.cloneNode(true);
+
+            // 신청 버튼 제거
             const applyButton = clonedRow.querySelector(".apply-btn");
             if (applyButton) applyButton.remove();
+
+            // 확정 테이블에 추가
             confirmedTable.appendChild(clonedRow);
 
             // 버튼 비활성화
@@ -128,9 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const allButtonsDisabled = Array.from(applyButtons).every((btn) => btn.disabled);
             if (allButtonsDisabled) {
                 const endTime = new Date();
-                const duration = ((endTime - window.startTime) / 1000).toFixed(2);
-                alert(`모든 신청 완료! 소요 시간: ${duration}초`);
-                console.log(`End Time: ${endTime}, Duration: ${duration}s`); // 디버깅 로그
+                const elapsedTime = ((endTime - startTime) / 1000).toFixed(2); // 소요 시간 (초)
+                alert(`모든 신청 완료! 총 소요 시간: ${elapsedTime}초`);
+                startTime = null; // 시간 초기화
             }
         });
     });
