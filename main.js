@@ -79,18 +79,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    // 전역 스코프에서 startTime 초기화
     let startTime = null;
 
-    // 시간 측정 버튼 클릭 이벤트
+    // 시간 측정 버튼
     const measureTimeButton = document.querySelector("#start-timer");
     const applyButtons = document.querySelectorAll(".apply-btn");
     const confirmedTable = document.querySelector("#confirmed-table"); // 확정 내역 테이블의 tbody
 
-    // 시간 측정 버튼 클릭 처리
+    // 시간 측정 버튼 클릭 이벤트 처리
     if (measureTimeButton) {
         measureTimeButton.addEventListener("click", function () {
             alert("시간을 측정합니다.");
             startTime = new Date(); // 측정 시작 시간 기록
+            console.log("시간 측정 시작:", startTime); // 디버깅용 콘솔 로그
         });
     } else {
         console.error("시간 측정 버튼이 HTML에 존재하지 않습니다.");
@@ -138,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const endTime = new Date();
                 const elapsedTime = ((endTime - startTime) / 1000).toFixed(2); // 소요 시간 (초)
                 alert(`모든 신청 완료! 총 소요 시간: ${elapsedTime}초`);
+                console.log("시간 측정 종료:", endTime); // 디버깅용 콘솔 로그
                 startTime = null; // 시간 초기화
             }
         });
