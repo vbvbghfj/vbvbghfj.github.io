@@ -78,11 +78,31 @@
             color: #00663f;
         }
 
+        .section-title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
         .section-title {
             font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 10px;
             color: #00663f;
+        }
+
+        .section-title button {
+            padding: 5px 10px;
+            background-color: #00663f;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .section-title button:hover {
+            background-color: #00562d;
         }
 
         table.course-list {
@@ -160,7 +180,11 @@
             <div class="title">수강포털시스템 (Course Registration Portal)</div>
         </div>
 
-        <div class="section-title">장바구니 조회/신청</div>
+        <div class="section-title-container">
+            <div class="section-title">장바구니 조회/신청</div>
+            <button onclick="alert('시간 측정 버튼 클릭됨!')">시간 측정</button>
+        </div>
+
         <table class="course-list">
             <thead>
                 <tr>
