@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // 중복 과목 확인
             for (const existingRow of existingRows) {
                 if (existingRow.children[1].textContent === courseId) {
-                    alert("이미 확정 내역에 있는 과목입니다.");
+                    alert("해당 과목이 [수강신청] 되었습니다.");
                     return;
                 }
             }
