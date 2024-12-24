@@ -154,8 +154,32 @@
             margin: 20px 0;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="main.js"></script>
+    <script>
+        let startTime = null;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // 시간 측정 버튼 클릭 이벤트
+            const measureTimeButton = document.querySelector(".section-title button");
+            const applyButtons = document.querySelectorAll(".apply-btn");
+
+            measureTimeButton.addEventListener("click", function () {
+                alert("시간을 측정합니다.");
+                startTime = new Date(); // 측정 시작 시간 기록
+            });
+
+            applyButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    // 마지막 버튼 클릭인지 확인
+                    if (index === applyButtons.length - 1 && startTime) {
+                        const endTime = new Date(); // 측정 종료 시간 기록
+                        const elapsedTime = ((endTime - startTime) / 1000).toFixed(2); // 소요 시간 (초)
+                        alert(`모든 신청 완료! 총 소요 시간: ${elapsedTime}초`);
+                        startTime = null; // 시간 초기화
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -182,7 +206,7 @@
 
         <div class="section-title-container">
             <div class="section-title">장바구니 조회/신청</div>
-            <button onclick="alert('시간 측정 버튼 클릭됨!')">시간 측정</button>
+            <button>시간 측정</button>
         </div>
 
         <table class="course-list">
@@ -273,6 +297,6 @@
             </tbody>
         </table>
     </div>
-    <script src="main.js"></script>
 </body>
 </html>
+
