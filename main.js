@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const startTimerButton = document.querySelector("#start-timer");
-    
+
     if (startTimerButton) {
         startTimerButton.addEventListener("click", function () {
             alert("시간을 측정합니다.");
@@ -90,44 +90,46 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("시간 측정 버튼이 HTML에 존재하지 않습니다.");
     }
 
-    const applyButtons = document.querySelectorAll("#cart-table .apply-btn");
     const confirmedTable = document.querySelector("#confirmed-table"); // 확정 내역 테이블의 tbody
 
-    applyButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            if (!window.startTime) {
-                alert("먼저 시간을 측정하세요!");
-                return;
-            }
+    const updateApplyButtons = () => {
+        const applyButtons = document.querySelectorAll("#cart-table .apply-btn");
 
-            const row = button.closest("tr");
-            const courseId = row.children[1].textContent; // 학수번호
-            const existingRows = confirmedTable.querySelectorAll("tr");
-
-            for (const existingRow of existingRows) {
-                if (existingRow.children[1].textContent === courseId) {
-                    alert("이미 확정 내역에 있는 과목입니다.");
+        applyButtons.forEach((button) => {
+            button.addEventListener("click", function () {
+                if (!window.startTime) {
+                    alert("먼저 시간을 측정하세요!");
                     return;
                 }
-            }
 
-            const clonedRow = row.cloneNode(true);
-            const applyButton = clonedRow.querySelector(".apply-btn");
-            if (applyButton) applyButton.remove();
-            confirmedTable.appendChild(clonedRow);
-            button.disabled = true;
-            button.textContent = "신청 완료";
+                const row = button.closest("tr");
+                const courseId = row.children[1].textContent; // 학수번호
+                const existingRows = confirmedTable.querySelectorAll("tr");
 
-            const allButtonsDisabled = Array.from(applyButtons).every((btn) => btn.disabled);
-            if (allButtonsDisabled) {
-                const endTime = new Date();
-                const duration = ((endTime - window.startTime) / 1000).toFixed(2);
-                alert(`모든 신청 완료! 소요 시간: ${duration}초`);
-            }
+                for (const existingRow of existingRows) {
+                    if (existingRow.children[1].textContent === courseId) {
+                        alert("이미 확정 내역에 있는 과목입니다.");
+                        return;
+                    }
+                }
+
+                const clonedRow = row.cloneNode(true);
+                const applyButton = clonedRow.querySelector(".apply-btn");
+                if (applyButton) applyButton.remove();
+                confirmedTable.appendChild(clonedRow);
+                button.disabled = true;
+                button.textContent = "신청 완료";
+
+                const allButtonsDisabled = Array.from(document.querySelectorAll("#cart-table .apply-btn"))
+                    .every((btn) => btn.disabled);
+                if (allButtonsDisabled) {
+                    const endTime = new Date();
+                    const duration = ((endTime - window.startTime) / 1000).toFixed(2);
+                    alert(`모든 신청 완료! 소요 시간: ${duration}초`);
+                }
+            });
         });
-    });
+    };
+
+    updateApplyButtons(); // 초기 호출
 });
-
-
-
-
