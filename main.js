@@ -50,10 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // 이미 확정 내역에 동일한 학수번호가 있는지 확인
             const courseId = row.children[1].textContent; // 학수번호
             const existingRows = confirmedTable.querySelectorAll("tr");
-            for (const existingRow of existingRows) {
-                if (existingRow.children[1].textContent === courseId) {
-                    alert("이미 확정 내역에 있는 과목입니다.");
-                    return;
+
+            // 기존 행이 있을 때만 중복 검사
+            if (existingRows.length > 0) {
+                for (const existingRow of existingRows) {
+                    if (existingRow.children[1].textContent === courseId) {
+                        alert("이미 확정 내역에 있는 과목입니다.");
+                        return;
+                    }
                 }
             }
 
